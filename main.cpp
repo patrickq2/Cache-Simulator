@@ -7,7 +7,7 @@
 #include <tuple>
 #include <vector>
 
-std::string hexToBin(const std::string& s)
+std::string hexToBin(const std::string& s) //function to convert hexadecimal to binary
 {
     std::stringstream ss;
     ss << std::hex << s;
@@ -200,6 +200,37 @@ int main() {
             counter++;
         }
         inputFile.close();
+
+        //output stats for each cache
+        std::cout << "Direct Associative: " << std::endl;
+        std::cout << "Hit: " << directHit << std::endl;
+        std::cout << "Miss: " << directMiss << std::endl;
+        std::cout << "Hit rate: " << (double)directHit/(double)counter << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Fully Associative FIFO: " << std::endl;
+        std::cout << "Hit: " << fullHit << std::endl;
+        std::cout << "Miss: " << fullMiss << std::endl;
+        std::cout << "Hit rate: " << (float)fullHit/(float)counter << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Fully Associative LRU: " << std::endl;
+        std::cout << "Hit: " << fullHitLRU << std::endl;
+        std::cout << "Miss: " << fullMissLRU << std::endl;
+        std::cout << "Hit rate: " << (float)fullHitLRU/(float)counter << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Set Associative FIFO: " << std::endl;
+        std::cout << "Hit: " << setHit << std::endl;
+        std::cout << "Miss: " << setMiss << std::endl;
+        std::cout << "Hit rate: " << (float)setHit/(float)counter << std::endl;
+        std::cout << std::endl;
+
+        std::cout << "Set Associative LRU: " << std::endl;
+        std::cout << "Hit: " << setHitLRU << std::endl;
+        std::cout << "Miss: " << setMissLRU << std::endl;
+        std::cout << "Hit rate: " << (float)setHitLRU/(float)counter << std::endl;
+        std::cout << std::endl;
     }
 
     return 0;
